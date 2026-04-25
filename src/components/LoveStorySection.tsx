@@ -30,12 +30,12 @@ const initialOffsets = [
 ];
 
 const timelinePositions = [
-  { x: -480, y: -200, rot: -6 },
-  { x: -260, y: -60, rot: 4 },
-  { x: -60, y: 80, rot: -3 },
-  { x: 140, y: -30, rot: 5 },
-  { x: 310, y: -180, rot: -4 },
-  { x: 460, y: -60, rot: 3 },
+  { x: -470, y: -200, rot: -6 },
+  { x: -280, y: -60, rot: 4 },
+  { x: -90, y: 80, rot: -3 },
+  { x: 100, y: -30, rot: 5 },
+  { x: 290, y: -180, rot: -4 },
+  { x: 470, y: -60, rot: 3 },
 ];
 
 const timelinePositionsMobile = [
