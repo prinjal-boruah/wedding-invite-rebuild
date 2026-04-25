@@ -29,10 +29,9 @@ const initialOffsets = [
   { x: 22, y: -30 },
 ];
 
-// Timeline positions are calculated symmetrically around x=0.
-// Card width on desktop = 234px (half = 117px). Spread half-width = 480px.
-// Pairs: (-480, +480), (-288, +288), (-96, +96) — each pair sums to 0,
-// so the mean x is exactly 0 → spread is mathematically centered.
+// Timeline positions are calculated around each card's visual center.
+// The Card component uses a centered wrapper first, then Framer Motion offsets
+// the inner card, so symmetric x-values stay visually centered on every screen.
 const timelinePositions = [
   { x: -480, y: -200, rot: -6 },  // top-left
   { x: 480, y: -180, rot: 3 },    // top-right
@@ -43,12 +42,12 @@ const timelinePositions = [
 ];
 
 const timelinePositionsMobile = [
-  { x: -100, y: -240, rot: -6 },
-  { x: 60, y: -150, rot: 4 },
-  { x: -80, y: -50, rot: -3 },
-  { x: 70, y: 40, rot: 5 },
-  { x: -60, y: 140, rot: -4 },
-  { x: 80, y: 230, rot: 3 },
+  { x: -92, y: -240, rot: -6 },
+  { x: 92, y: -150, rot: 4 },
+  { x: -92, y: -50, rot: -3 },
+  { x: 92, y: 40, rot: 5 },
+  { x: -92, y: 140, rot: -4 },
+  { x: 92, y: 230, rot: 3 },
 ];
 
 type CardProps = {
@@ -72,32 +71,34 @@ const Card = ({ photo, index, scrollYProgress, onClick, isMobile }: CardProps) =
   const zIndex = photos.length - index;
 
   return (
-    <motion.div
-      style={{ x, y, rotate, zIndex }}
-      className="absolute top-[58%] left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer group"
-      whileHover={{ scale: 1.08, zIndex: 50, transition: { duration: 0.3 } }}
-      onClick={() => onClick(index)}
-    >
-      <div
-        className="bg-white shadow-[0_4px_24px_rgba(0,0,0,0.12)] rounded-xl
-                   w-[156px] h-[200px] md:w-[234px] md:h-[300px] p-[8px] md:p-[12px]
-                   flex flex-col"
+    <div className="absolute top-[58%] left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ zIndex }}>
+      <motion.div
+        style={{ x, y, rotate }}
+        className="cursor-pointer group"
+        whileHover={{ scale: 1.08, zIndex: 50, transition: { duration: 0.3 } }}
+        onClick={() => onClick(index)}
       >
-        <div className="flex-1 overflow-hidden bg-gray-100 rounded-lg">
-          <img src={photo.src} alt={photo.label} className="w-full h-full object-cover" draggable={false} />
+        <div
+          className="bg-white shadow-[0_4px_24px_rgba(0,0,0,0.12)] rounded-xl
+                     w-[156px] h-[200px] md:w-[234px] md:h-[300px] p-[8px] md:p-[12px]
+                     flex flex-col"
+        >
+          <div className="flex-1 overflow-hidden bg-gray-100 rounded-lg">
+            <img src={photo.src} alt={photo.label} className="w-full h-full object-cover" draggable={false} />
+          </div>
+          <div className="pt-[6px] md:pt-[10px] pb-[2px] text-center">
+            <p className="text-[9px] md:text-[11px] font-serif italic text-soft-brown/80 truncate">{photo.label}</p>
+          </div>
         </div>
-        <div className="pt-[6px] md:pt-[10px] pb-[2px] text-center">
-          <p className="text-[9px] md:text-[11px] font-serif italic text-soft-brown/80 truncate">{photo.label}</p>
-        </div>
-      </div>
 
-      <motion.p
-        style={{ opacity: captionOpacity }}
-        className="text-center mt-2 text-[9px] md:text-xs font-serif italic text-soft-brown/70 whitespace-nowrap"
-      >
-        {photo.caption}
-      </motion.p>
-    </motion.div>
+        <motion.p
+          style={{ opacity: captionOpacity }}
+          className="text-center mt-2 text-[9px] md:text-xs font-serif italic text-soft-brown/70 whitespace-nowrap"
+        >
+          {photo.caption}
+        </motion.p>
+      </motion.div>
+    </div>
   );
 };
 
@@ -109,7 +110,7 @@ const ConnectorLines = ({ scrollYProgress, isMobile }: { scrollYProgress: Motion
     <motion.svg
       style={{ opacity }}
       className="absolute inset-0 w-full h-full pointer-events-none z-0"
-      viewBox="-600 -350 1200 700"
+      viewBox={isMobile ? '-180 -330 360 660' : '-600 -350 1200 700'}
       preserveAspectRatio="xMidYMid meet"
     >
       <defs>
