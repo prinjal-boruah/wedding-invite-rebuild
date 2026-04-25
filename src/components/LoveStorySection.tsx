@@ -29,13 +29,17 @@ const initialOffsets = [
   { x: 22, y: -30 },
 ];
 
+// Timeline positions are calculated symmetrically around x=0.
+// Card width on desktop = 234px (half = 117px). Spread half-width = 480px.
+// Pairs: (-480, +480), (-288, +288), (-96, +96) — each pair sums to 0,
+// so the mean x is exactly 0 → spread is mathematically centered.
 const timelinePositions = [
-  { x: -470, y: -200, rot: -6 },
-  { x: -280, y: -60, rot: 4 },
-  { x: -90, y: 80, rot: -3 },
-  { x: 100, y: -30, rot: 5 },
-  { x: 290, y: -180, rot: -4 },
-  { x: 470, y: -60, rot: 3 },
+  { x: -480, y: -200, rot: -6 },  // top-left
+  { x: 480, y: -180, rot: 3 },    // top-right
+  { x: -288, y: -40, rot: 4 },    // mid-left
+  { x: 288, y: -60, rot: -4 },    // mid-right
+  { x: -96, y: 100, rot: -3 },    // bottom-left
+  { x: 96, y: 80, rot: 5 },       // bottom-right
 ];
 
 const timelinePositionsMobile = [
