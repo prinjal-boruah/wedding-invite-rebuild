@@ -79,9 +79,8 @@ html { scroll-behavior: smooth; }
 
 .scroll-tracking-wrapper {
   position: relative;
-  height: 200vh;
+  height: 130vh;
 }
-.scroll-tracking-wrapper + .scroll-tracking-wrapper { margin-top: 40vh; }
 
 .scroll-sticky-container {
   position: sticky;

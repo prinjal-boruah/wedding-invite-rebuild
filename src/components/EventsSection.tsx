@@ -100,7 +100,7 @@ const ScrollInvitation = ({ event, index }: { event: WeddingEvent; index: number
     offset: ['start end', 'end start'],
   });
 
-  const openProgress = useTransform(scrollYProgress, [0.15, 0.5], [0, 1]);
+  const openProgress = useTransform(scrollYProgress, [0.25, 0.65], [0, 1]);
   const paperMaxHeight = useTransform(openProgress, [0, 1], [0, 650]);
   const contentOpacity = useTransform(openProgress, [0.35, 0.8], [0, 1]);
   const contentY = useTransform(openProgress, [0.35, 0.8], [30, 0]);
