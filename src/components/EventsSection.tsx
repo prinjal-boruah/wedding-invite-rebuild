@@ -100,10 +100,12 @@ const ScrollInvitation = ({ event, index }: { event: WeddingEvent; index: number
     offset: ['start end', 'end start'],
   });
 
-  const openProgress = useTransform(scrollYProgress, [0.25, 0.65], [0, 1]);
-  const paperMaxHeight = useTransform(openProgress, [0, 1], [0, 650]);
-  const contentOpacity = useTransform(openProgress, [0.35, 0.8], [0, 1]);
-  const contentY = useTransform(openProgress, [0.35, 0.8], [30, 0]);
+  // Open earlier and finish well before the section ends so the fully-open
+  // invitation stays visible (and centered) for a comfortable scroll range.
+  const openProgress = useTransform(scrollYProgress, [0.18, 0.5], [0, 1]);
+  const paperMaxHeight = useTransform(openProgress, [0, 1], [0, 460]);
+  const contentOpacity = useTransform(openProgress, [0.4, 0.85], [0, 1]);
+  const contentY = useTransform(openProgress, [0.4, 0.85], [24, 0]);
   const invitationScale = useTransform(openProgress, [0, 0.15], [0.95, 1]);
 
   return (

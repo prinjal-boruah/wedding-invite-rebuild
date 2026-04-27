@@ -79,7 +79,7 @@ html { scroll-behavior: smooth; }
 
 .scroll-tracking-wrapper {
   position: relative;
-  height: 130vh;
+  height: 160vh;
 }
 
 .scroll-sticky-container {
@@ -95,7 +95,7 @@ html { scroll-behavior: smooth; }
 .scroll-invitation {
   position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: 380px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,7 +152,7 @@ html { scroll-behavior: smooth; }
   background-position: center, center;
   border-left: 1px solid rgba(180, 150, 120, 0.15);
   border-right: 1px solid rgba(180, 150, 120, 0.15);
-  padding: 44px 32px 40px;
+  padding: 28px 28px 26px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,29 +160,29 @@ html { scroll-behavior: smooth; }
 }
 
 .scroll-header-ornament {
-  font-size: 26px;
+  font-size: 20px;
   color: #D4AF37;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   opacity: 0.65;
 }
 
 .scroll-invitation-line {
   font-family: "Cormorant Garamond", serif;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-style: italic;
   color: rgba(62, 39, 35, 0.45);
   letter-spacing: 0.08em;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .scroll-wreath-container {
   position: relative;
-  width: 190px;
-  height: 190px;
+  width: 150px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
 }
 
 .scroll-wreath-img {
@@ -200,7 +200,7 @@ html { scroll-behavior: smooth; }
 
 .scroll-event-name {
   font-family: "Great Vibes", cursive;
-  font-size: 2.6rem;
+  font-size: 2.1rem;
   color: #3E2723;
   line-height: 1.1;
   font-weight: 400;
@@ -209,13 +209,13 @@ html { scroll-behavior: smooth; }
 
 .scroll-description {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 400;
   font-style: italic;
-  line-height: 1.75;
+  line-height: 1.55;
   color: rgba(62, 39, 35, 0.68);
-  max-width: 310px;
-  margin: 0 auto 16px;
+  max-width: 290px;
+  margin: 0 auto 10px;
   text-align: center;
 }
 
@@ -223,14 +223,14 @@ html { scroll-behavior: smooth; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 12px;
   color: #D4AF37;
-  font-size: 10px;
+  font-size: 9px;
 }
 
 .divider-line {
-  width: 60px;
+  width: 50px;
   height: 1px;
   background: linear-gradient(to right, transparent, #D4AF37, transparent);
 }
@@ -238,8 +238,8 @@ html { scroll-behavior: smooth; }
 .scroll-details {
   display: flex;
   flex-direction: column;
-  gap: 11px;
-  margin-bottom: 16px;
+  gap: 7px;
+  margin-bottom: 8px;
 }
 
 .scroll-detail-row {
@@ -247,7 +247,7 @@ html { scroll-behavior: smooth; }
   align-items: center;
   gap: 10px;
   font-family: "Inter", sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: rgba(62, 39, 35, 0.6);
   letter-spacing: 0.04em;
 }
@@ -255,11 +255,11 @@ html { scroll-behavior: smooth; }
 .scroll-detail-row svg { color: #D4AF37; flex-shrink: 0; }
 
 .scroll-footer-ornament {
-  font-size: 22px;
+  font-size: 18px;
   color: #D4AF37;
   opacity: 0.4;
   transform: rotate(180deg);
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .scroll-corner-img {
@@ -281,25 +281,40 @@ html { scroll-behavior: smooth; }
 .corner-br { bottom: 6px; right: 6px; transform: scale(-1,-1); --co: top left; }
 
 @media (max-width: 480px) {
-  .scroll-invitation { max-width: 320px; }
-  .paper-inner { padding: 32px 18px 28px; }
-  .scroll-wreath-container { width: 150px; height: 150px; }
-  .scroll-event-name { font-size: 2.1rem; }
-  .scroll-description { font-size: 0.9rem; max-width: 240px; }
-  .scroll-corner-img { width: 55px; height: 55px; }
-  .scroll-detail-row { font-size: 0.75rem; }
+  .scroll-invitation { max-width: 300px; }
+  .paper-inner { padding: 22px 18px 22px; }
+  .scroll-wreath-container { width: 130px; height: 130px; }
+  .scroll-event-name { font-size: 1.85rem; }
+  .scroll-description { font-size: 0.82rem; max-width: 230px; }
+  .scroll-corner-img { width: 50px; height: 50px; }
+  .scroll-detail-row { font-size: 0.72rem; }
   .events-heading-section { padding: 4rem 1rem 3rem; }
 }
 
 @media (min-width: 768px) {
-  .scroll-invitation { max-width: 480px; }
-  .paper-inner { padding: 50px 40px 44px; }
-  .scroll-wreath-container { width: 210px; height: 210px; }
-  .scroll-event-name { font-size: 3rem; }
-  .scroll-description { font-size: 1.05rem; max-width: 350px; }
-  .scroll-corner-img { width: 100px; height: 100px; }
+  .scroll-invitation { max-width: 420px; }
+  .paper-inner { padding: 32px 36px 30px; }
+  .scroll-wreath-container { width: 170px; height: 170px; }
+  .scroll-event-name { font-size: 2.5rem; }
+  .scroll-description { font-size: 0.95rem; max-width: 320px; }
+  .scroll-corner-img { width: 80px; height: 80px; }
 }
 
 @media (min-width: 1024px) {
-  .scroll-invitation { max-width: 500px; }
+  .scroll-invitation { max-width: 440px; }
+}
+
+/* Short viewports — keep the opened invitation fully in frame */
+@media (max-height: 720px) {
+  .scroll-invitation { max-width: 340px; }
+  .paper-inner { padding: 20px 22px 20px; }
+  .scroll-wreath-container { width: 120px; height: 120px; margin-bottom: 4px; }
+  .scroll-event-name { font-size: 1.85rem; }
+  .scroll-header-ornament { font-size: 16px; }
+  .scroll-invitation-line { font-size: 0.72rem; margin-bottom: 4px; }
+  .scroll-description { font-size: 0.82rem; line-height: 1.5; margin-bottom: 8px; max-width: 270px; }
+  .scroll-divider { margin-bottom: 8px; }
+  .scroll-details { gap: 5px; margin-bottom: 4px; }
+  .scroll-detail-row { font-size: 0.72rem; }
+  .scroll-footer-ornament { font-size: 14px; }
 }
