@@ -100,12 +100,12 @@ const ScrollInvitation = ({ event, index }: { event: WeddingEvent; index: number
     offset: ['start end', 'end start'],
   });
 
-  // Open earlier and finish well before the section ends so the fully-open
-  // invitation stays visible (and centered) for a comfortable scroll range.
-  const openProgress = useTransform(scrollYProgress, [0.18, 0.5], [0, 1]);
-  const paperMaxHeight = useTransform(openProgress, [0, 1], [0, 360]);
-  const contentOpacity = useTransform(openProgress, [0.4, 0.85], [0, 1]);
-  const contentY = useTransform(openProgress, [0.4, 0.85], [24, 0]);
+  // Finish opening before the sticky block reaches its end constraint, so the
+  // full scroll is visible while both handles are still comfortably in frame.
+  const openProgress = useTransform(scrollYProgress, [0.08, 0.34], [0, 1]);
+  const paperMaxHeight = useTransform(openProgress, [0, 1], ['0px', 'min(340px, calc(100svh - 156px))']);
+  const contentOpacity = useTransform(openProgress, [0.28, 0.72], [0, 1]);
+  const contentY = useTransform(openProgress, [0.28, 0.72], [18, 0]);
   const invitationScale = useTransform(openProgress, [0, 0.15], [0.95, 1]);
 
   return (
