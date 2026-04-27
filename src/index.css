@@ -135,7 +135,7 @@ html { scroll-behavior: smooth; }
 }
 
 .paper-revealed {
-  width: 80%;
+  width: 86%;
   overflow: hidden;
   position: relative;
   z-index: 5;
