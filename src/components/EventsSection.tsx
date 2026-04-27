@@ -100,24 +100,24 @@ const ScrollInvitation = ({ event, index }: { event: WeddingEvent; index: number
     offset: ['start end', 'end start'],
   });
 
-  // Start the unroll only once the invitation is already visible, then finish
-  // while the sticky block is still centered in the viewport.
-  const openProgress = useTransform(scrollYProgress, [0.28, 0.62], [0, 1]);
-  const paperMaxHeight = useTransform(openProgress, [0, 1], [0, 340]);
+  // The top handle gets pinned at 30% from the top of the viewport.
+  // As scroll progresses, the paper unrolls downward and the bottom handle
+  // moves down with it.
+  const openProgress = useTransform(scrollYProgress, [0.30, 0.70], [0, 1]);
+  const paperHeight = useTransform(openProgress, [0, 1], [0, 340]);
   const contentOpacity = useTransform(openProgress, [0.55, 0.95], [0, 1]);
   const contentY = useTransform(openProgress, [0.55, 0.95], [18, 0]);
-  const invitationScale = useTransform(openProgress, [0, 0.2], [0.95, 1]);
 
   return (
     <div ref={wrapperRef} className="scroll-tracking-wrapper">
       <div className="scroll-sticky-container">
-        <motion.div className="scroll-invitation" style={{ scale: invitationScale }}>
+        <motion.div className="scroll-invitation">
           <div className="handle-area">
             <WoodenHandle id={`t${index}`} />
             <div className="paper-wrap" />
           </div>
 
-          <motion.div className="paper-revealed" style={{ maxHeight: paperMaxHeight }}>
+          <motion.div className="paper-revealed" style={{ height: paperHeight }}>
             <div className="paper-inner">
               <div className="scroll-header-ornament">❦</div>
 
