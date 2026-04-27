@@ -95,18 +95,17 @@ const WoodenHandle = ({ id = 'default' }: { id?: string }) => (
 const ScrollInvitation = ({ event, index }: { event: WeddingEvent; index: number }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
+  // Pin the section for its full scroll duration, like LoveStorySection.
   const { scrollYProgress } = useScroll({
     target: wrapperRef,
-    offset: ['start end', 'end start'],
+    offset: ['start start', 'end end'],
   });
 
-  // The top handle gets pinned at 30% from the top of the viewport.
-  // As scroll progresses, the paper unrolls downward and the bottom handle
-  // moves down with it.
-  const openProgress = useTransform(scrollYProgress, [0.30, 0.70], [0, 1]);
+  // While pinned, the invitation unrolls from 0 → 1 gradually.
+  const openProgress = useTransform(scrollYProgress, [0.1, 0.85], [0, 1]);
   const paperHeight = useTransform(openProgress, [0, 1], [0, 340]);
-  const contentOpacity = useTransform(openProgress, [0.55, 0.95], [0, 1]);
-  const contentY = useTransform(openProgress, [0.55, 0.95], [18, 0]);
+  const contentOpacity = useTransform(openProgress, [0.6, 0.95], [0, 1]);
+  const contentY = useTransform(openProgress, [0.6, 0.95], [18, 0]);
 
   return (
     <div ref={wrapperRef} className="scroll-tracking-wrapper">
