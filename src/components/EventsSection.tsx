@@ -102,7 +102,7 @@ const ScrollInvitation = ({ event, index }: { event: WeddingEvent; index: number
 
   // Start the unroll only once the invitation is already visible, then finish
   // while the sticky block is still centered in the viewport.
-  const openProgress = useTransform(scrollYProgress, [0.36, 0.54], [0, 1]);
+  const openProgress = useTransform(scrollYProgress, [0.28, 0.62], [0, 1]);
   const paperMaxHeight = useTransform(openProgress, [0, 1], ['0px', 'min(340px, calc(100svh - 156px))']);
   const contentOpacity = useTransform(openProgress, [0.28, 0.72], [0, 1]);
   const contentY = useTransform(openProgress, [0.28, 0.72], [18, 0]);
