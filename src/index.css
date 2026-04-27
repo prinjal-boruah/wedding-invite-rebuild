@@ -247,7 +247,7 @@ html { scroll-behavior: smooth; }
   align-items: center;
   gap: 10px;
   font-family: "Inter", sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: rgba(62, 39, 35, 0.6);
   letter-spacing: 0.04em;
 }
@@ -255,11 +255,11 @@ html { scroll-behavior: smooth; }
 .scroll-detail-row svg { color: #D4AF37; flex-shrink: 0; }
 
 .scroll-footer-ornament {
-  font-size: 22px;
+  font-size: 18px;
   color: #D4AF37;
   opacity: 0.4;
   transform: rotate(180deg);
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .scroll-corner-img {
