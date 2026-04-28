@@ -283,20 +283,19 @@ html { scroll-behavior: smooth; }
 .corner-br { bottom: 6px; right: 6px; transform: scale(-1,-1); --co: top left; }
 
 @media (max-width: 480px) {
-  .scroll-invitation-h { height: 320px; }
-  .paper-content { padding: 16px 18px; }
-  .scroll-wreath-container { width: 110px; height: 110px; }
-  .scroll-event-name { font-size: 1.7rem; }
-  .scroll-description { font-size: 0.78rem; max-width: 230px; }
+  .scroll-invitation { max-width: 360px; --paper-width: 90%; }
+  .paper-inner { padding: 22px 18px 22px; }
+  .scroll-wreath-container { width: 130px; height: 130px; }
+  .scroll-event-name { font-size: 1.85rem; }
+  .scroll-description { font-size: 0.82rem; max-width: 230px; }
   .scroll-corner-img { width: 50px; height: 50px; }
   .scroll-detail-row { font-size: 0.72rem; }
   .events-heading-section { padding: 4rem 1rem 3rem; }
-  .scroll-handle-v { width: 36px; }
 }
 
 @media (min-width: 768px) {
-  .scroll-invitation-h { height: 380px; }
-  .paper-content { padding: 24px 44px; }
+  .scroll-invitation { max-width: 600px; --paper-width: 86%; }
+  .paper-inner { padding: 24px 44px 22px; }
   .scroll-wreath-container { width: 150px; height: 150px; margin-bottom: 6px; }
   .scroll-event-name { font-size: 2.3rem; }
   .scroll-description { font-size: 0.92rem; max-width: 380px; }
@@ -304,19 +303,18 @@ html { scroll-behavior: smooth; }
 }
 
 @media (min-width: 1024px) {
-  .scroll-invitation-h { max-width: 900px; height: 400px; }
-  .paper-content { padding: 26px 56px; }
+  .scroll-invitation { max-width: 680px; --paper-width: 86%; }
+  .paper-inner { padding: 26px 56px 24px; }
 }
 
 /* Short viewports — keep the opened invitation fully in frame */
 @media (max-height: 720px) {
-  .scroll-invitation-h { height: 300px; }
-  .paper-content { padding: 14px 22px; }
-  .scroll-wreath-container { width: 100px; height: 100px; margin-bottom: 2px; }
-  .scroll-event-name { font-size: 1.6rem; }
+  .paper-inner { padding: 16px 22px 16px; }
+  .scroll-wreath-container { width: 110px; height: 110px; margin-bottom: 2px; }
+  .scroll-event-name { font-size: 1.75rem; }
   .scroll-header-ornament { font-size: 14px; margin-bottom: 0; }
   .scroll-invitation-line { font-size: 0.72rem; margin-bottom: 2px; }
-  .scroll-description { font-size: 0.78rem; line-height: 1.45; margin-bottom: 6px; max-width: 360px; }
+  .scroll-description { font-size: 0.8rem; line-height: 1.45; margin-bottom: 6px; max-width: 360px; }
   .scroll-divider { margin-bottom: 6px; }
   .scroll-details { gap: 4px; margin-bottom: 2px; }
   .scroll-detail-row { font-size: 0.72rem; }
