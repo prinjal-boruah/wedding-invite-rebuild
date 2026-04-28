@@ -78,8 +78,9 @@ const WoodenHandleVertical = ({ id = 'default' }: { id?: string }) => (
 );
 
 const SidewaysInvitation = ({ progress }: { progress: MotionValue<number> }) => {
-  // Paper width grows 0 → 100% as the section is pinned and scrolled.
-  const paperWidth = useTransform(progress, [0, 1], ['0%', '100%']);
+  // Paper region width grows 0 → 732px (matches .paper-inner-h max width).
+  // CSS clamps it via max-width on small screens.
+  const paperWidth = useTransform(progress, [0, 1], [0, 732]);
   const contentOpacity = useTransform(progress, [0.7, 1], [0, 1]);
   const contentX = useTransform(progress, [0.7, 1], [20, 0]);
 
