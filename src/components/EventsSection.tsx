@@ -27,107 +27,111 @@ const events: WeddingEvent[] = [
   },
 ];
 
-/* Vertical wooden handle/rod (sideways scroll). */
 const WoodenHandle = ({ id = 'default' }: { id?: string }) => (
-  <div className="scroll-handle-v">
-    <svg width="44" height="100%" viewBox="0 0 44 340" preserveAspectRatio="none" style={{ display: 'block', height: '100%', overflow: 'visible' }}>
+  <div className="scroll-handle">
+    <svg width="100%" height="60" viewBox="0 0 360 64" preserveAspectRatio="none" style={{ overflow: 'visible' }}>
       <defs>
-        <linearGradient id={`wg-${id}`} x1="0" y1="0" x2="1" y2="0">
+        <linearGradient id={`wg-${id}`} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#7A5235" />
           <stop offset="20%" stopColor="#5C3A22" />
           <stop offset="50%" stopColor="#4A2E18" />
           <stop offset="80%" stopColor="#5C3A22" />
           <stop offset="100%" stopColor="#3D2415" />
         </linearGradient>
-        <linearGradient id={`whl-${id}`} x1="0" y1="0" x2="1" y2="0">
+        <linearGradient id={`whl-${id}`} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="rgba(255,255,255,0.2)" />
           <stop offset="30%" stopColor="rgba(255,255,255,0)" />
           <stop offset="100%" stopColor="rgba(0,0,0,0.12)" />
         </linearGradient>
-        <linearGradient id={`fn-${id}`} x1="0" y1="0" x2="1" y2="0">
+        <linearGradient id={`fn-${id}`} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#6B4427" />
           <stop offset="25%" stopColor="#4A2E18" />
           <stop offset="50%" stopColor="#3D2415" />
           <stop offset="75%" stopColor="#4A2E18" />
           <stop offset="100%" stopColor="#2E1B0E" />
         </linearGradient>
-        <radialGradient id={`fhl-${id}`} cx="0.3" cy="0.4" r="0.5">
+        <radialGradient id={`fhl-${id}`} cx="0.4" cy="0.3" r="0.5">
           <stop offset="0%" stopColor="rgba(255,255,255,0.2)" />
           <stop offset="100%" stopColor="rgba(255,255,255,0)" />
         </radialGradient>
+        <radialGradient id={`fsh-${id}`} cx="0.5" cy="0.7" r="0.5">
+          <stop offset="0%" stopColor="rgba(0,0,0,0.15)" />
+          <stop offset="100%" stopColor="rgba(0,0,0,0)" />
+        </radialGradient>
       </defs>
 
-      {/* Main rod (vertical) */}
-      <rect x="14" y="34" width="16" height="272" rx="2" fill={`url(#wg-${id})`} />
-      <rect x="14" y="34" width="16" height="272" rx="2" fill={`url(#whl-${id})`} />
+      <rect x="34" y="20" width="292" height="24" rx="2" fill={`url(#wg-${id})`} />
+      <rect x="34" y="20" width="292" height="24" rx="2" fill={`url(#whl-${id})`} />
 
-      {/* Top finial */}
-      <ellipse cx="22" cy="34" rx="15" ry="4" fill={`url(#fn-${id})`} />
-      <ellipse cx="22" cy="22" rx="22" ry="11" fill={`url(#fn-${id})`} />
-      <ellipse cx="22" cy="13" rx="13" ry="5" fill={`url(#fn-${id})`} />
-      <ellipse cx="22" cy="9" rx="10" ry="4" fill={`url(#fn-${id})`} />
-      <ellipse cx="22" cy="6" rx="6" ry="2" fill={`url(#fn-${id})`} />
-      <ellipse cx="22" cy="22" rx="22" ry="11" fill={`url(#fhl-${id})`} />
-      <ellipse cx="22" cy="13" rx="13" ry="5" fill={`url(#fhl-${id})`} />
+      {/* Left finial */}
+      <ellipse cx="34" cy="32" rx="4" ry="15" fill={`url(#fn-${id})`} />
+      <ellipse cx="20" cy="32" rx="11" ry="22" fill={`url(#fn-${id})`} />
+      <ellipse cx="9" cy="32" rx="5" ry="13" fill={`url(#fn-${id})`} />
+      <ellipse cx="4" cy="32" rx="4" ry="10" fill={`url(#fn-${id})`} />
+      <ellipse cx="1" cy="32" rx="2" ry="6" fill={`url(#fn-${id})`} />
+      <ellipse cx="20" cy="32" rx="11" ry="22" fill={`url(#fhl-${id})`} />
+      <ellipse cx="9" cy="32" rx="5" ry="13" fill={`url(#fhl-${id})`} />
+      <ellipse cx="4" cy="32" rx="4" ry="10" fill={`url(#fhl-${id})`} />
+      <ellipse cx="20" cy="32" rx="11" ry="22" fill={`url(#fsh-${id})`} />
+      <ellipse cx="28" cy="32" rx="1.5" ry="16" fill="rgba(30,15,5,0.3)" />
+      <ellipse cx="12" cy="32" rx="1.5" ry="14" fill="rgba(30,15,5,0.25)" />
 
-      {/* Bottom finial */}
-      <ellipse cx="22" cy="306" rx="15" ry="4" fill={`url(#fn-${id})`} />
-      <ellipse cx="22" cy="318" rx="22" ry="11" fill={`url(#fn-${id})`} />
-      <ellipse cx="22" cy="327" rx="13" ry="5" fill={`url(#fn-${id})`} />
-      <ellipse cx="22" cy="331" rx="10" ry="4" fill={`url(#fn-${id})`} />
-      <ellipse cx="22" cy="334" rx="6" ry="2" fill={`url(#fn-${id})`} />
-      <ellipse cx="22" cy="318" rx="22" ry="11" fill={`url(#fhl-${id})`} />
-      <ellipse cx="22" cy="327" rx="13" ry="5" fill={`url(#fhl-${id})`} />
-
-      {/* Grain lines */}
-      <line x1="18" y1="34" x2="18" y2="306" stroke="rgba(30,15,5,0.2)" strokeWidth="1.5" />
-      <line x1="26" y1="34" x2="26" y2="306" stroke="rgba(30,15,5,0.14)" strokeWidth="1" />
+      {/* Right finial */}
+      <ellipse cx="326" cy="32" rx="4" ry="15" fill={`url(#fn-${id})`} />
+      <ellipse cx="340" cy="32" rx="11" ry="22" fill={`url(#fn-${id})`} />
+      <ellipse cx="351" cy="32" rx="5" ry="13" fill={`url(#fn-${id})`} />
+      <ellipse cx="356" cy="32" rx="4" ry="10" fill={`url(#fn-${id})`} />
+      <ellipse cx="359" cy="32" rx="2" ry="6" fill={`url(#fn-${id})`} />
+      <ellipse cx="340" cy="32" rx="11" ry="22" fill={`url(#fhl-${id})`} />
+      <ellipse cx="351" cy="32" rx="5" ry="13" fill={`url(#fhl-${id})`} />
+      <ellipse cx="356" cy="32" rx="4" ry="10" fill={`url(#fhl-${id})`} />
+      <ellipse cx="340" cy="32" rx="11" ry="22" fill={`url(#fsh-${id})`} />
+      <ellipse cx="332" cy="32" rx="1.5" ry="16" fill="rgba(30,15,5,0.3)" />
+      <ellipse cx="348" cy="32" rx="1.5" ry="14" fill="rgba(30,15,5,0.25)" />
     </svg>
   </div>
 );
 
-const ScrollInvitation = ({ event, index }: { event: WeddingEvent; index: number }) => {
+type ScrollInvitationProps = { event: WeddingEvent; index: number };
+
+const ScrollInvitation = ({ event, index }: ScrollInvitationProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  // Pin section while sideways unroll happens (LoveStorySection-style).
+  // Pin the section while it scrolls — content inside sticky container stays in view.
   const { scrollYProgress } = useScroll({
     target: wrapperRef,
     offset: ['start start', 'end end'],
   });
 
-  // Map scroll → unroll progress 0→1, with hold at start & end.
-  const progress = useTransform(scrollYProgress, [0.1, 0.85], [0, 1]);
-
-  // Paper width grows from 0 → full
-  const paperWidth = useTransform(progress, [0, 1], ['0%', '100%']);
-  // Content fades in once paper is mostly open
-  const contentOpacity = useTransform(progress, [0.7, 1], [0, 1]);
-  const contentX = useTransform(progress, [0.7, 1], [20, 0]);
+  // Unroll progress 0→1 across most of the pinned scroll, with a hold at start & end.
+  const openProgress = useTransform(scrollYProgress, [0.15, 0.8], [0, 1]);
+  const paperHeight = useTransform(openProgress, [0, 1], [0, 340]);
+  const contentOpacity = useTransform(openProgress, [0.65, 0.98], [0, 1]);
+  const contentY = useTransform(openProgress, [0.65, 0.98], [18, 0]);
 
   return (
     <div ref={wrapperRef} className="scroll-tracking-wrapper">
       <div className="scroll-sticky-container">
-        <div className="scroll-invitation-h">
-          {/* Left handle — fixed anchor */}
-          <WoodenHandle id={`l${index}`} />
+        <div className="scroll-invitation">
+          <div className="handle-area">
+            <WoodenHandle id={`t${index}`} />
+            <div className="paper-wrap" />
+          </div>
 
-          {/* Paper region — grows in width */}
-          <motion.div className="paper-region" style={{ width: paperWidth }}>
-            <div className="paper-inner-h">
-              <motion.div
-                className="paper-content"
-                style={{ opacity: contentOpacity, x: contentX }}
-              >
-                <div className="scroll-header-ornament">❦</div>
-                <p className="scroll-invitation-line">You are cordially invited to</p>
+          <motion.div className="paper-revealed" style={{ height: paperHeight }}>
+            <div className="paper-inner">
+              <div className="scroll-header-ornament">❦</div>
 
-                <div className="scroll-wreath-container">
-                  <img src="/images/floral_wreath.png" alt="Floral wreath" className="scroll-wreath-img" />
-                  <div className="scroll-event-name-overlay">
-                    <h3 className="scroll-event-name">{event.name}</h3>
-                  </div>
+              <p className="scroll-invitation-line">You are cordially invited to</p>
+
+              <div className="scroll-wreath-container">
+                <img src="/images/floral_wreath.png" alt="Floral wreath" className="scroll-wreath-img" />
+                <div className="scroll-event-name-overlay">
+                  <h3 className="scroll-event-name">{event.name}</h3>
                 </div>
+              </div>
 
+              <motion.div style={{ opacity: contentOpacity, y: contentY }}>
                 <p className="scroll-description">{event.description}</p>
 
                 <div className="scroll-divider">
@@ -152,17 +156,19 @@ const ScrollInvitation = ({ event, index }: { event: WeddingEvent; index: number
                 </div>
 
                 <div className="scroll-footer-ornament">❦</div>
-
-                <img src="/images/floral_corner.png" alt="" className="scroll-corner-img corner-tl" />
-                <img src="/images/floral_corner.png" alt="" className="scroll-corner-img corner-tr" />
-                <img src="/images/floral_corner.png" alt="" className="scroll-corner-img corner-bl" />
-                <img src="/images/floral_corner.png" alt="" className="scroll-corner-img corner-br" />
               </motion.div>
+
+              <img src="/images/floral_corner.png" alt="" className="scroll-corner-img corner-tl" />
+              <img src="/images/floral_corner.png" alt="" className="scroll-corner-img corner-tr" />
+              <img src="/images/floral_corner.png" alt="" className="scroll-corner-img corner-bl" />
+              <img src="/images/floral_corner.png" alt="" className="scroll-corner-img corner-br" />
             </div>
           </motion.div>
 
-          {/* Right handle — rides on the right edge of paper */}
-          <WoodenHandle id={`r${index}`} />
+          <div className="handle-area">
+            <WoodenHandle id={`b${index}`} />
+            <div className="paper-wrap" />
+          </div>
         </div>
       </div>
     </div>
@@ -183,7 +189,7 @@ const EventsSection = () => {
           <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-sans font-medium mb-6">Celebrations</h2>
           <h3 className="text-5xl md:text-7xl font-script text-dark-brown">Wedding Events</h3>
           <p className="mt-6 text-soft-brown/70 font-sans text-sm tracking-wide max-w-md mx-auto">
-            Scroll to unroll each invitation
+            Scroll down to unroll each invitation
           </p>
         </motion.div>
       </section>
