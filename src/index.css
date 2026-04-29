@@ -343,9 +343,11 @@ html { scroll-behavior: smooth; }
 .corner-br { bottom: 6px; right: 6px; transform: scale(-1,-1); --co: top left; }
 
 @media (max-width: 480px) {
-  .scroll-invitation-h { height: 380px; max-width: 100%; }
-  .scroll-handle-v { width: 32px; height: 380px; }
-  .paper-region-h { height: 320px; max-width: calc(100vw - 64px - 1rem + 16px); margin-left: -8px; margin-right: -8px; }
+  .scroll-invitation-h { height: 420px; max-width: 100%; }
+  .scroll-handle-wrap { width: 32px; height: 420px; }
+  .scroll-handle-v { width: 32px; }
+  .paper-sleeve { width: 22px; height: 300px; }
+  .paper-region-h { height: 300px; max-width: calc(100vw - 64px - 1rem + 16px); margin-left: -8px; margin-right: -8px; }
   .paper-inner-h { width: 100%; max-width: calc(100vw - 64px - 1rem + 16px); }
   .paper-content-h { padding: 16px 26px; }
   .scroll-wreath-container { width: 110px; height: 110px; }
@@ -357,8 +359,9 @@ html { scroll-behavior: smooth; }
 }
 
 @media (min-width: 768px) {
-  .scroll-invitation-h { height: 440px; }
-  .scroll-handle-v { height: 440px; }
+  .scroll-invitation-h { height: 500px; }
+  .scroll-handle-wrap { height: 500px; }
+  .paper-sleeve { height: 380px; }
   .paper-region-h { height: 380px; }
   .paper-content-h { padding: 24px 56px; }
   .scroll-wreath-container { width: 150px; height: 150px; margin-bottom: 6px; }
@@ -368,8 +371,9 @@ html { scroll-behavior: smooth; }
 }
 
 @media (min-width: 1024px) {
-  .scroll-invitation-h { max-width: 900px; height: 460px; }
-  .scroll-handle-v { height: 460px; }
+  .scroll-invitation-h { max-width: 900px; height: 520px; }
+  .scroll-handle-wrap { height: 520px; }
+  .paper-sleeve { height: 400px; }
   .paper-region-h { height: 400px; }
   .paper-inner-h { width: 812px; }
   .paper-content-h { padding: 26px 68px; }
@@ -377,9 +381,10 @@ html { scroll-behavior: smooth; }
 
 /* Short viewports — keep the opened invitation fully in frame */
 @media (max-height: 720px) {
-  .scroll-invitation-h { height: 360px; }
-  .scroll-handle-v { height: 360px; }
-  .paper-region-h { height: 300px; }
+  .scroll-invitation-h { height: 400px; }
+  .scroll-handle-wrap { height: 400px; }
+  .paper-sleeve { height: 280px; }
+  .paper-region-h { height: 280px; }
   .paper-content-h { padding: 14px 32px; }
   .scroll-wreath-container { width: 100px; height: 100px; margin-bottom: 2px; }
   .scroll-event-name { font-size: 1.6rem; }
