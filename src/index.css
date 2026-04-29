@@ -105,7 +105,7 @@ html { scroll-behavior: smooth; }
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 480px;
+  height: 420px;
   max-width: calc(100vw - 2rem);
   will-change: transform;
 }
@@ -114,7 +114,7 @@ html { scroll-behavior: smooth; }
   position: relative;
   flex-shrink: 0;
   width: 44px;
-  height: 480px;
+  height: 420px;
   z-index: 10;
 }
 
@@ -132,56 +132,59 @@ html { scroll-behavior: smooth; }
   height: 100%;
 }
 
-/* Cylindrical paper sleeve wrapping the rod — same vertical extent as
-   the paper region. Shading mimics a rolled cylinder of parchment. */
+/* Cylindrical paper sleeve wrapping the rod — thicker wrap like rolled parchment */
 .paper-sleeve {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 30px;
-  height: 360px;
+  width: 52px;
+  height: 380px;
   background:
     linear-gradient(to right,
-      rgba(0,0,0,0.28) 0%,
-      rgba(120,90,60,0.18) 18%,
-      rgba(255,250,244,0.95) 50%,
-      rgba(120,90,60,0.18) 82%,
-      rgba(0,0,0,0.28) 100%
+      rgba(0,0,0,0.32) 0%,
+      rgba(120,90,60,0.22) 14%,
+      rgba(255,250,244,0.96) 50%,
+      rgba(120,90,60,0.22) 86%,
+      rgba(0,0,0,0.32) 100%
     ),
     url('/images/parchment_texture.png');
   background-size: 100% 100%, cover;
   background-position: center, center;
   background-blend-mode: multiply, normal;
-  border-top: 1px solid rgba(120, 90, 60, 0.35);
-  border-bottom: 1px solid rgba(120, 90, 60, 0.35);
+  border-top: 1px solid rgba(120, 90, 60, 0.4);
+  border-bottom: 1px solid rgba(120, 90, 60, 0.4);
   box-shadow:
-    inset 0 4px 6px -2px rgba(0,0,0,0.25),
-    inset 0 -4px 6px -2px rgba(0,0,0,0.25);
+    inset 0 5px 8px -2px rgba(0,0,0,0.3),
+    inset 0 -5px 8px -2px rgba(0,0,0,0.3),
+    0 2px 6px rgba(40,20,5,0.25);
   z-index: 12;
   pointer-events: none;
+  border-radius: 2px;
 }
 
-.paper-sleeve-left { right: 4px; }
-.paper-sleeve-right { left: 4px; }
+.paper-sleeve-left { right: -4px; }
+.paper-sleeve-right { left: -4px; }
 
 /* Paper region — width animated 0 → 732px via inline style.
    Negative margin tucks paper edges behind the sleeves. */
 .paper-region-h {
   position: relative;
-  height: 360px;
+  height: 380px;
   overflow: hidden;
   z-index: 5;
   flex-shrink: 0;
-  max-width: calc(100vw - 88px - 2rem + 24px);
-  margin-left: -12px;
-  margin-right: -12px;
+  max-width: calc(100vw - 88px - 2rem + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
-/* Inner paper has fixed natural width so content does not reflow as the
-   region grows. The region simply reveals more of it from the left. */
+/* Inner paper anchored to the right so content stays centered as the
+   region grows from the left handle outward. */
 .paper-inner-h {
-  position: relative;
-  width: 732px; /* max paper width = 820 - 44*2 */
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 732px;
   max-width: calc(100vw - 88px - 2rem);
   height: 100%;
   background:
@@ -213,7 +216,7 @@ html { scroll-behavior: smooth; }
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 24px 36px;
+  padding: 28px 56px;
   display: flex;
   flex-direction: column;
   align-items: center;
