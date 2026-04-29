@@ -185,8 +185,8 @@ html { scroll-behavior: smooth; }
   position: absolute;
   right: 0;
   top: 0;
-  width: 732px;
-  max-width: calc(100vw - 88px - 2rem);
+  width: 852px;
+  max-width: calc(100vw - 88px - 2rem + 40px);
   height: 100%;
   background:
     radial-gradient(ellipse at center, rgba(255,250,244,0.5) 0%, transparent 65%),
