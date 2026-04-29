@@ -97,25 +97,33 @@ html { scroll-behavior: smooth; }
 }
 
 /* Sideways layout: [left rod] [paper] [right rod].
-   Handles overlap the paper edges (negative margin) so the parchment
-   appears wrapped around the rods. Handles are also taller than the
-   paper so the carved finials are visible above and below. */
+   Handles are noticeably taller than the paper so the carved finials
+   are clearly visible. A "paper sleeve" (cylindrical wrap) sits over
+   the rod where the parchment meets it, looking like rolled paper. */
 .scroll-invitation-h {
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 420px;
+  height: 480px;
   max-width: calc(100vw - 2rem);
   will-change: transform;
 }
 
-.scroll-handle-v {
+.scroll-handle-wrap {
+  position: relative;
   flex-shrink: 0;
   width: 44px;
-  height: 420px;
-  filter: drop-shadow(0 3px 6px rgba(40,20,5,0.4));
+  height: 480px;
   z-index: 10;
+}
+
+.scroll-handle-v {
+  position: absolute;
+  inset: 0;
+  width: 44px;
+  height: 100%;
+  filter: drop-shadow(0 3px 6px rgba(40,20,5,0.4));
 }
 
 .scroll-handle-v svg {
@@ -124,8 +132,40 @@ html { scroll-behavior: smooth; }
   height: 100%;
 }
 
+/* Cylindrical paper sleeve wrapping the rod — same vertical extent as
+   the paper region. Shading mimics a rolled cylinder of parchment. */
+.paper-sleeve {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 360px;
+  background:
+    linear-gradient(to right,
+      rgba(0,0,0,0.28) 0%,
+      rgba(120,90,60,0.18) 18%,
+      rgba(255,250,244,0.95) 50%,
+      rgba(120,90,60,0.18) 82%,
+      rgba(0,0,0,0.28) 100%
+    ),
+    url('/images/parchment_texture.png');
+  background-size: 100% 100%, cover;
+  background-position: center, center;
+  background-blend-mode: multiply, normal;
+  border-top: 1px solid rgba(120, 90, 60, 0.35);
+  border-bottom: 1px solid rgba(120, 90, 60, 0.35);
+  box-shadow:
+    inset 0 4px 6px -2px rgba(0,0,0,0.25),
+    inset 0 -4px 6px -2px rgba(0,0,0,0.25);
+  z-index: 12;
+  pointer-events: none;
+}
+
+.paper-sleeve-left { right: 4px; }
+.paper-sleeve-right { left: 4px; }
+
 /* Paper region — width animated 0 → 732px via inline style.
-   Negative margin tucks paper edges behind the rods. */
+   Negative margin tucks paper edges behind the sleeves. */
 .paper-region-h {
   position: relative;
   height: 360px;
@@ -303,9 +343,11 @@ html { scroll-behavior: smooth; }
 .corner-br { bottom: 6px; right: 6px; transform: scale(-1,-1); --co: top left; }
 
 @media (max-width: 480px) {
-  .scroll-invitation-h { height: 380px; max-width: 100%; }
-  .scroll-handle-v { width: 32px; height: 380px; }
-  .paper-region-h { height: 320px; max-width: calc(100vw - 64px - 1rem + 16px); margin-left: -8px; margin-right: -8px; }
+  .scroll-invitation-h { height: 420px; max-width: 100%; }
+  .scroll-handle-wrap { width: 32px; height: 420px; }
+  .scroll-handle-v { width: 32px; }
+  .paper-sleeve { width: 22px; height: 300px; }
+  .paper-region-h { height: 300px; max-width: calc(100vw - 64px - 1rem + 16px); margin-left: -8px; margin-right: -8px; }
   .paper-inner-h { width: 100%; max-width: calc(100vw - 64px - 1rem + 16px); }
   .paper-content-h { padding: 16px 26px; }
   .scroll-wreath-container { width: 110px; height: 110px; }
@@ -317,8 +359,9 @@ html { scroll-behavior: smooth; }
 }
 
 @media (min-width: 768px) {
-  .scroll-invitation-h { height: 440px; }
-  .scroll-handle-v { height: 440px; }
+  .scroll-invitation-h { height: 500px; }
+  .scroll-handle-wrap { height: 500px; }
+  .paper-sleeve { height: 380px; }
   .paper-region-h { height: 380px; }
   .paper-content-h { padding: 24px 56px; }
   .scroll-wreath-container { width: 150px; height: 150px; margin-bottom: 6px; }
@@ -328,8 +371,9 @@ html { scroll-behavior: smooth; }
 }
 
 @media (min-width: 1024px) {
-  .scroll-invitation-h { max-width: 900px; height: 460px; }
-  .scroll-handle-v { height: 460px; }
+  .scroll-invitation-h { max-width: 900px; height: 520px; }
+  .scroll-handle-wrap { height: 520px; }
+  .paper-sleeve { height: 400px; }
   .paper-region-h { height: 400px; }
   .paper-inner-h { width: 812px; }
   .paper-content-h { padding: 26px 68px; }
@@ -337,9 +381,10 @@ html { scroll-behavior: smooth; }
 
 /* Short viewports — keep the opened invitation fully in frame */
 @media (max-height: 720px) {
-  .scroll-invitation-h { height: 360px; }
-  .scroll-handle-v { height: 360px; }
-  .paper-region-h { height: 300px; }
+  .scroll-invitation-h { height: 400px; }
+  .scroll-handle-wrap { height: 400px; }
+  .paper-sleeve { height: 280px; }
+  .paper-region-h { height: 280px; }
   .paper-content-h { padding: 14px 32px; }
   .scroll-wreath-container { width: 100px; height: 100px; margin-bottom: 2px; }
   .scroll-event-name { font-size: 1.6rem; }

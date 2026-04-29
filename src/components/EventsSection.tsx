@@ -79,15 +79,17 @@ const WoodenHandleVertical = ({ id = 'default' }: { id?: string }) => (
 
 const SidewaysInvitation = ({ progress }: { progress: MotionValue<number> }) => {
   // Paper region width grows 0 → 732px (matches .paper-inner-h max width).
-  // CSS clamps it via max-width on small screens.
   const paperWidth = useTransform(progress, [0, 1], [0, 732]);
   const contentOpacity = useTransform(progress, [0.7, 1], [0, 1]);
   const contentX = useTransform(progress, [0.7, 1], [20, 0]);
 
   return (
     <div className="scroll-invitation-h">
-      {/* Left handle — fixed anchor */}
-      <WoodenHandleVertical id="left" />
+      {/* Left handle + paper sleeve wrapping it */}
+      <div className="scroll-handle-wrap">
+        <WoodenHandleVertical id="left" />
+        <div className="paper-sleeve paper-sleeve-left" aria-hidden="true" />
+      </div>
 
       {/* Paper region — width animates 0 → full */}
       <motion.div className="paper-region-h" style={{ width: paperWidth }}>
@@ -139,8 +141,11 @@ const SidewaysInvitation = ({ progress }: { progress: MotionValue<number> }) => 
         </div>
       </motion.div>
 
-      {/* Right handle — rides the right edge of the paper */}
-      <WoodenHandleVertical id="right" />
+      {/* Right handle + paper sleeve wrapping it */}
+      <div className="scroll-handle-wrap">
+        <div className="paper-sleeve paper-sleeve-right" aria-hidden="true" />
+        <WoodenHandleVertical id="right" />
+      </div>
     </div>
   );
 };
