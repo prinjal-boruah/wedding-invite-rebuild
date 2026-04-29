@@ -105,7 +105,7 @@ html { scroll-behavior: smooth; }
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 420px;
+  height: 480px;
   max-width: calc(100vw - 2rem);
   will-change: transform;
 }
@@ -114,7 +114,7 @@ html { scroll-behavior: smooth; }
   position: relative;
   flex-shrink: 0;
   width: 44px;
-  height: 420px;
+  height: 480px;
   z-index: 10;
 }
 
@@ -139,6 +139,7 @@ html { scroll-behavior: smooth; }
   transform: translateY(-50%);
   width: 52px;
   height: 380px;
+  pointer-events: none;
   background:
     linear-gradient(to right,
       rgba(0,0,0,0.32) 0%,
@@ -184,8 +185,8 @@ html { scroll-behavior: smooth; }
   position: absolute;
   right: 0;
   top: 0;
-  width: 732px;
-  max-width: calc(100vw - 88px - 2rem);
+  width: 852px;
+  max-width: calc(100vw - 88px - 2rem + 40px);
   height: 100%;
   background:
     radial-gradient(ellipse at center, rgba(255,250,244,0.5) 0%, transparent 65%),
@@ -365,8 +366,8 @@ html { scroll-behavior: smooth; }
 }
 
 @media (min-width: 768px) {
-  .scroll-invitation-h { height: 460px; }
-  .scroll-handle-wrap { height: 460px; }
+  .scroll-invitation-h { height: 520px; }
+  .scroll-handle-wrap { height: 520px; }
   .paper-sleeve { height: 420px; }
   .paper-region-h { height: 420px; }
   .paper-content-h { padding: 30px 64px; }
@@ -377,8 +378,8 @@ html { scroll-behavior: smooth; }
 }
 
 @media (min-width: 1024px) {
-  .scroll-invitation-h { max-width: 940px; height: 480px; }
-  .scroll-handle-wrap { height: 480px; }
+  .scroll-invitation-h { max-width: 940px; height: 540px; }
+  .scroll-handle-wrap { height: 540px; }
   .paper-sleeve { height: 440px; }
   .paper-region-h { height: 440px; }
   .paper-inner-h { width: 852px; }
