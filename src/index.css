@@ -105,7 +105,7 @@ html { scroll-behavior: smooth; }
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 480px;
+  height: 420px;
   max-width: calc(100vw - 2rem);
   will-change: transform;
 }
@@ -114,7 +114,7 @@ html { scroll-behavior: smooth; }
   position: relative;
   flex-shrink: 0;
   width: 44px;
-  height: 480px;
+  height: 420px;
   z-index: 10;
 }
 
@@ -132,56 +132,59 @@ html { scroll-behavior: smooth; }
   height: 100%;
 }
 
-/* Cylindrical paper sleeve wrapping the rod — same vertical extent as
-   the paper region. Shading mimics a rolled cylinder of parchment. */
+/* Cylindrical paper sleeve wrapping the rod — thicker wrap like rolled parchment */
 .paper-sleeve {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 30px;
-  height: 360px;
+  width: 52px;
+  height: 380px;
   background:
     linear-gradient(to right,
-      rgba(0,0,0,0.28) 0%,
-      rgba(120,90,60,0.18) 18%,
-      rgba(255,250,244,0.95) 50%,
-      rgba(120,90,60,0.18) 82%,
-      rgba(0,0,0,0.28) 100%
+      rgba(0,0,0,0.32) 0%,
+      rgba(120,90,60,0.22) 14%,
+      rgba(255,250,244,0.96) 50%,
+      rgba(120,90,60,0.22) 86%,
+      rgba(0,0,0,0.32) 100%
     ),
     url('/images/parchment_texture.png');
   background-size: 100% 100%, cover;
   background-position: center, center;
   background-blend-mode: multiply, normal;
-  border-top: 1px solid rgba(120, 90, 60, 0.35);
-  border-bottom: 1px solid rgba(120, 90, 60, 0.35);
+  border-top: 1px solid rgba(120, 90, 60, 0.4);
+  border-bottom: 1px solid rgba(120, 90, 60, 0.4);
   box-shadow:
-    inset 0 4px 6px -2px rgba(0,0,0,0.25),
-    inset 0 -4px 6px -2px rgba(0,0,0,0.25);
+    inset 0 5px 8px -2px rgba(0,0,0,0.3),
+    inset 0 -5px 8px -2px rgba(0,0,0,0.3),
+    0 2px 6px rgba(40,20,5,0.25);
   z-index: 12;
   pointer-events: none;
+  border-radius: 2px;
 }
 
-.paper-sleeve-left { right: 4px; }
-.paper-sleeve-right { left: 4px; }
+.paper-sleeve-left { right: -4px; }
+.paper-sleeve-right { left: -4px; }
 
 /* Paper region — width animated 0 → 732px via inline style.
    Negative margin tucks paper edges behind the sleeves. */
 .paper-region-h {
   position: relative;
-  height: 360px;
+  height: 380px;
   overflow: hidden;
   z-index: 5;
   flex-shrink: 0;
-  max-width: calc(100vw - 88px - 2rem + 24px);
-  margin-left: -12px;
-  margin-right: -12px;
+  max-width: calc(100vw - 88px - 2rem + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
-/* Inner paper has fixed natural width so content does not reflow as the
-   region grows. The region simply reveals more of it from the left. */
+/* Inner paper anchored to the right so content stays centered as the
+   region grows from the left handle outward. */
 .paper-inner-h {
-  position: relative;
-  width: 732px; /* max paper width = 820 - 44*2 */
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 732px;
   max-width: calc(100vw - 88px - 2rem);
   height: 100%;
   background:
@@ -213,7 +216,7 @@ html { scroll-behavior: smooth; }
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 24px 36px;
+  padding: 28px 56px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -222,29 +225,29 @@ html { scroll-behavior: smooth; }
 }
 
 .scroll-header-ornament {
-  font-size: 20px;
+  font-size: 22px;
   color: #D4AF37;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   opacity: 0.65;
 }
 
 .scroll-invitation-line {
   font-family: "Cormorant Garamond", serif;
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   font-style: italic;
-  color: rgba(62, 39, 35, 0.45);
+  color: rgba(62, 39, 35, 0.55);
   letter-spacing: 0.08em;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .scroll-wreath-container {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .scroll-wreath-img {
@@ -262,7 +265,7 @@ html { scroll-behavior: smooth; }
 
 .scroll-event-name {
   font-family: "Great Vibes", cursive;
-  font-size: 2.1rem;
+  font-size: 2.6rem;
   color: #3E2723;
   line-height: 1.1;
   font-weight: 400;
@@ -271,13 +274,13 @@ html { scroll-behavior: smooth; }
 
 .scroll-description {
   font-family: "Cormorant Garamond", serif;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   font-weight: 400;
   font-style: italic;
   line-height: 1.55;
-  color: rgba(62, 39, 35, 0.68);
-  max-width: 290px;
-  margin: 0 auto 10px;
+  color: rgba(62, 39, 35, 0.72);
+  max-width: 360px;
+  margin: 0 auto 14px;
   text-align: center;
 }
 
@@ -285,14 +288,14 @@ html { scroll-behavior: smooth; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: 12px;
+  margin-bottom: 14px;
   color: #D4AF37;
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .divider-line {
-  width: 50px;
+  width: 60px;
   height: 1px;
   background: linear-gradient(to right, transparent, #D4AF37, transparent);
 }
@@ -300,28 +303,28 @@ html { scroll-behavior: smooth; }
 .scroll-details {
   display: flex;
   flex-direction: column;
-  gap: 7px;
-  margin-bottom: 8px;
+  gap: 9px;
+  margin-bottom: 10px;
 }
 
 .scroll-detail-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-family: "Inter", sans-serif;
-  font-size: 0.78rem;
-  color: rgba(62, 39, 35, 0.6);
+  font-size: 0.92rem;
+  color: rgba(62, 39, 35, 0.7);
   letter-spacing: 0.04em;
 }
 
-.scroll-detail-row svg { color: #D4AF37; flex-shrink: 0; }
+.scroll-detail-row svg { color: #D4AF37; flex-shrink: 0; width: 17px; height: 17px; }
 
 .scroll-footer-ornament {
-  font-size: 18px;
+  font-size: 20px;
   color: #D4AF37;
   opacity: 0.4;
   transform: rotate(180deg);
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 .scroll-corner-img {
@@ -343,57 +346,60 @@ html { scroll-behavior: smooth; }
 .corner-br { bottom: 6px; right: 6px; transform: scale(-1,-1); --co: top left; }
 
 @media (max-width: 480px) {
-  .scroll-invitation-h { height: 420px; max-width: 100%; }
-  .scroll-handle-wrap { width: 32px; height: 420px; }
+  .scroll-invitation-h { height: 360px; max-width: 100%; }
+  .scroll-handle-wrap { width: 32px; height: 360px; }
   .scroll-handle-v { width: 32px; }
-  .paper-sleeve { width: 22px; height: 300px; }
-  .paper-region-h { height: 300px; max-width: calc(100vw - 64px - 1rem + 16px); margin-left: -8px; margin-right: -8px; }
-  .paper-inner-h { width: 100%; max-width: calc(100vw - 64px - 1rem + 16px); }
-  .paper-content-h { padding: 16px 26px; }
-  .scroll-wreath-container { width: 110px; height: 110px; }
-  .scroll-event-name { font-size: 1.7rem; }
-  .scroll-description { font-size: 0.78rem; max-width: 230px; }
-  .scroll-corner-img { width: 50px; height: 50px; }
-  .scroll-detail-row { font-size: 0.72rem; }
+  .paper-sleeve { width: 38px; height: 320px; }
+  .paper-sleeve-left { right: -3px; }
+  .paper-sleeve-right { left: -3px; }
+  .paper-region-h { height: 320px; max-width: calc(100vw - 64px - 1rem + 28px); margin-left: -14px; margin-right: -14px; }
+  .paper-inner-h { width: 100%; max-width: calc(100vw - 64px - 1rem + 28px); }
+  .paper-content-h { padding: 18px 28px; }
+  .scroll-wreath-container { width: 120px; height: 120px; }
+  .scroll-event-name { font-size: 2rem; }
+  .scroll-invitation-line { font-size: 0.85rem; }
+  .scroll-description { font-size: 0.9rem; max-width: 240px; }
+  .scroll-corner-img { width: 55px; height: 55px; }
+  .scroll-detail-row { font-size: 0.82rem; }
   .events-heading-section { padding: 4rem 1rem 3rem; }
 }
 
 @media (min-width: 768px) {
-  .scroll-invitation-h { height: 500px; }
-  .scroll-handle-wrap { height: 500px; }
-  .paper-sleeve { height: 380px; }
-  .paper-region-h { height: 380px; }
-  .paper-content-h { padding: 24px 56px; }
-  .scroll-wreath-container { width: 150px; height: 150px; margin-bottom: 6px; }
-  .scroll-event-name { font-size: 2.3rem; }
-  .scroll-description { font-size: 0.92rem; max-width: 380px; }
-  .scroll-corner-img { width: 80px; height: 80px; }
+  .scroll-invitation-h { height: 460px; }
+  .scroll-handle-wrap { height: 460px; }
+  .paper-sleeve { height: 420px; }
+  .paper-region-h { height: 420px; }
+  .paper-content-h { padding: 30px 64px; }
+  .scroll-wreath-container { width: 180px; height: 180px; margin-bottom: 8px; }
+  .scroll-event-name { font-size: 2.9rem; }
+  .scroll-description { font-size: 1.1rem; max-width: 420px; }
+  .scroll-corner-img { width: 90px; height: 90px; }
 }
 
 @media (min-width: 1024px) {
-  .scroll-invitation-h { max-width: 900px; height: 520px; }
-  .scroll-handle-wrap { height: 520px; }
-  .paper-sleeve { height: 400px; }
-  .paper-region-h { height: 400px; }
-  .paper-inner-h { width: 812px; }
-  .paper-content-h { padding: 26px 68px; }
+  .scroll-invitation-h { max-width: 940px; height: 480px; }
+  .scroll-handle-wrap { height: 480px; }
+  .paper-sleeve { height: 440px; }
+  .paper-region-h { height: 440px; }
+  .paper-inner-h { width: 852px; }
+  .paper-content-h { padding: 32px 76px; }
 }
 
 /* Short viewports — keep the opened invitation fully in frame */
 @media (max-height: 720px) {
-  .scroll-invitation-h { height: 400px; }
-  .scroll-handle-wrap { height: 400px; }
-  .paper-sleeve { height: 280px; }
-  .paper-region-h { height: 280px; }
-  .paper-content-h { padding: 14px 32px; }
-  .scroll-wreath-container { width: 100px; height: 100px; margin-bottom: 2px; }
-  .scroll-event-name { font-size: 1.6rem; }
-  .scroll-header-ornament { font-size: 14px; margin-bottom: 0; }
-  .scroll-invitation-line { font-size: 0.72rem; margin-bottom: 2px; }
-  .scroll-description { font-size: 0.78rem; line-height: 1.45; margin-bottom: 6px; max-width: 360px; }
-  .scroll-divider { margin-bottom: 6px; }
-  .scroll-details { gap: 4px; margin-bottom: 2px; }
-  .scroll-detail-row { font-size: 0.72rem; }
-  .scroll-footer-ornament { font-size: 12px; margin-top: 0; }
+  .scroll-invitation-h { height: 360px; }
+  .scroll-handle-wrap { height: 360px; }
+  .paper-sleeve { height: 320px; }
+  .paper-region-h { height: 320px; }
+  .paper-content-h { padding: 16px 40px; }
+  .scroll-wreath-container { width: 110px; height: 110px; margin-bottom: 4px; }
+  .scroll-event-name { font-size: 1.9rem; }
+  .scroll-header-ornament { font-size: 16px; margin-bottom: 2px; }
+  .scroll-invitation-line { font-size: 0.82rem; margin-bottom: 4px; }
+  .scroll-description { font-size: 0.88rem; line-height: 1.45; margin-bottom: 8px; max-width: 380px; }
+  .scroll-divider { margin-bottom: 8px; }
+  .scroll-details { gap: 6px; margin-bottom: 4px; }
+  .scroll-detail-row { font-size: 0.82rem; }
+  .scroll-footer-ornament { font-size: 14px; margin-top: 2px; }
 }
 
