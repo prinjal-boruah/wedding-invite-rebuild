@@ -97,25 +97,33 @@ html { scroll-behavior: smooth; }
 }
 
 /* Sideways layout: [left rod] [paper] [right rod].
-   Handles overlap the paper edges (negative margin) so the parchment
-   appears wrapped around the rods. Handles are also taller than the
-   paper so the carved finials are visible above and below. */
+   Handles are noticeably taller than the paper so the carved finials
+   are clearly visible. A "paper sleeve" (cylindrical wrap) sits over
+   the rod where the parchment meets it, looking like rolled paper. */
 .scroll-invitation-h {
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 420px;
+  height: 480px;
   max-width: calc(100vw - 2rem);
   will-change: transform;
 }
 
-.scroll-handle-v {
+.scroll-handle-wrap {
+  position: relative;
   flex-shrink: 0;
   width: 44px;
-  height: 420px;
-  filter: drop-shadow(0 3px 6px rgba(40,20,5,0.4));
+  height: 480px;
   z-index: 10;
+}
+
+.scroll-handle-v {
+  position: absolute;
+  inset: 0;
+  width: 44px;
+  height: 100%;
+  filter: drop-shadow(0 3px 6px rgba(40,20,5,0.4));
 }
 
 .scroll-handle-v svg {
@@ -124,8 +132,40 @@ html { scroll-behavior: smooth; }
   height: 100%;
 }
 
+/* Cylindrical paper sleeve wrapping the rod — same vertical extent as
+   the paper region. Shading mimics a rolled cylinder of parchment. */
+.paper-sleeve {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 360px;
+  background:
+    linear-gradient(to right,
+      rgba(0,0,0,0.28) 0%,
+      rgba(120,90,60,0.18) 18%,
+      rgba(255,250,244,0.95) 50%,
+      rgba(120,90,60,0.18) 82%,
+      rgba(0,0,0,0.28) 100%
+    ),
+    url('/images/parchment_texture.png');
+  background-size: 100% 100%, cover;
+  background-position: center, center;
+  background-blend-mode: multiply, normal;
+  border-top: 1px solid rgba(120, 90, 60, 0.35);
+  border-bottom: 1px solid rgba(120, 90, 60, 0.35);
+  box-shadow:
+    inset 0 4px 6px -2px rgba(0,0,0,0.25),
+    inset 0 -4px 6px -2px rgba(0,0,0,0.25);
+  z-index: 12;
+  pointer-events: none;
+}
+
+.paper-sleeve-left { right: 4px; }
+.paper-sleeve-right { left: 4px; }
+
 /* Paper region — width animated 0 → 732px via inline style.
-   Negative margin tucks paper edges behind the rods. */
+   Negative margin tucks paper edges behind the sleeves. */
 .paper-region-h {
   position: relative;
   height: 360px;
