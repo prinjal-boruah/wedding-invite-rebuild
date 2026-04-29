@@ -2,6 +2,7 @@ import HeroSection from '@/components/HeroSection';
 import CountdownSection from '@/components/CountdownSection';
 import LoveStorySection from '@/components/LoveStorySection';
 import EventsSection from '@/components/EventsSection';
+import RsvpSection from '@/components/RsvpSection';
 
 const Index = () => {
   return (
@@ -11,6 +12,7 @@ const Index = () => {
       <CountdownSection />
       <LoveStorySection />
       <EventsSection />
+      <RsvpSection />
     </main>
   );
 };
