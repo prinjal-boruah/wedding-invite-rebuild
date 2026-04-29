@@ -105,7 +105,7 @@ html { scroll-behavior: smooth; }
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 420px;
+  height: 480px;
   max-width: calc(100vw - 2rem);
   will-change: transform;
 }
@@ -114,7 +114,7 @@ html { scroll-behavior: smooth; }
   position: relative;
   flex-shrink: 0;
   width: 44px;
-  height: 420px;
+  height: 480px;
   z-index: 10;
 }
 
@@ -139,6 +139,7 @@ html { scroll-behavior: smooth; }
   transform: translateY(-50%);
   width: 52px;
   height: 380px;
+  pointer-events: none;
   background:
     linear-gradient(to right,
       rgba(0,0,0,0.32) 0%,
