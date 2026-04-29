@@ -225,29 +225,29 @@ html { scroll-behavior: smooth; }
 }
 
 .scroll-header-ornament {
-  font-size: 20px;
+  font-size: 22px;
   color: #D4AF37;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   opacity: 0.65;
 }
 
 .scroll-invitation-line {
   font-family: "Cormorant Garamond", serif;
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   font-style: italic;
-  color: rgba(62, 39, 35, 0.45);
+  color: rgba(62, 39, 35, 0.55);
   letter-spacing: 0.08em;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .scroll-wreath-container {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .scroll-wreath-img {
@@ -265,7 +265,7 @@ html { scroll-behavior: smooth; }
 
 .scroll-event-name {
   font-family: "Great Vibes", cursive;
-  font-size: 2.1rem;
+  font-size: 2.6rem;
   color: #3E2723;
   line-height: 1.1;
   font-weight: 400;
@@ -274,13 +274,13 @@ html { scroll-behavior: smooth; }
 
 .scroll-description {
   font-family: "Cormorant Garamond", serif;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   font-weight: 400;
   font-style: italic;
   line-height: 1.55;
-  color: rgba(62, 39, 35, 0.68);
-  max-width: 290px;
-  margin: 0 auto 10px;
+  color: rgba(62, 39, 35, 0.72);
+  max-width: 360px;
+  margin: 0 auto 14px;
   text-align: center;
 }
 
@@ -288,14 +288,14 @@ html { scroll-behavior: smooth; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: 12px;
+  margin-bottom: 14px;
   color: #D4AF37;
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .divider-line {
-  width: 50px;
+  width: 60px;
   height: 1px;
   background: linear-gradient(to right, transparent, #D4AF37, transparent);
 }
@@ -303,28 +303,28 @@ html { scroll-behavior: smooth; }
 .scroll-details {
   display: flex;
   flex-direction: column;
-  gap: 7px;
-  margin-bottom: 8px;
+  gap: 9px;
+  margin-bottom: 10px;
 }
 
 .scroll-detail-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-family: "Inter", sans-serif;
-  font-size: 0.78rem;
-  color: rgba(62, 39, 35, 0.6);
+  font-size: 0.92rem;
+  color: rgba(62, 39, 35, 0.7);
   letter-spacing: 0.04em;
 }
 
-.scroll-detail-row svg { color: #D4AF37; flex-shrink: 0; }
+.scroll-detail-row svg { color: #D4AF37; flex-shrink: 0; width: 17px; height: 17px; }
 
 .scroll-footer-ornament {
-  font-size: 18px;
+  font-size: 20px;
   color: #D4AF37;
   opacity: 0.4;
   transform: rotate(180deg);
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 .scroll-corner-img {
