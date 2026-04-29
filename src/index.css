@@ -378,8 +378,8 @@ html { scroll-behavior: smooth; }
 }
 
 @media (min-width: 1024px) {
-  .scroll-invitation-h { max-width: 940px; height: 480px; }
-  .scroll-handle-wrap { height: 480px; }
+  .scroll-invitation-h { max-width: 940px; height: 540px; }
+  .scroll-handle-wrap { height: 540px; }
   .paper-sleeve { height: 440px; }
   .paper-region-h { height: 440px; }
   .paper-inner-h { width: 852px; }
