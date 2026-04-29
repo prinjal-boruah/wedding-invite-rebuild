@@ -366,8 +366,8 @@ html { scroll-behavior: smooth; }
 }
 
 @media (min-width: 768px) {
-  .scroll-invitation-h { height: 460px; }
-  .scroll-handle-wrap { height: 460px; }
+  .scroll-invitation-h { height: 520px; }
+  .scroll-handle-wrap { height: 520px; }
   .paper-sleeve { height: 420px; }
   .paper-region-h { height: 420px; }
   .paper-content-h { padding: 30px 64px; }
