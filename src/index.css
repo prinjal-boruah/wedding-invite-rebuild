@@ -108,6 +108,8 @@ html { scroll-behavior: smooth; }
   height: 480px;
   max-width: calc(100vw - 2rem);
   will-change: transform;
+  margin: 0 auto;        /* ADD THIS */
+  left: 0;               /* ADD THIS — reset any implicit offset */
 }
 
 .scroll-handle-wrap {
