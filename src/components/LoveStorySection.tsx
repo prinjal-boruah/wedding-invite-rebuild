@@ -16,7 +16,7 @@ const photos: Photo[] = [
   { src: '/images/palace_1776425445755.png', caption: 'November 2023', label: 'The Palace Visit', location: 'Udaipur, India', story: 'A royal weekend getaway that made us dream of a future together. The sunsets here painted our love story in gold.' },
   { src: '/images/haldi_1776425508959.png', caption: 'December 2024', label: 'Our Favorite Festival', location: 'Jaipur, India', story: 'Celebrating traditions together, covered in marigolds and laughter. Every festival feels brighter with you by my side.' },
   { src: '/images/wedding_1776425528064.png', caption: 'April 2025', label: 'The Proposal', location: 'Udaipur, India', story: 'Under a canopy of flowers and fairy lights, one knee touched the ground and a lifetime promise was made. She said yes.' },
-  { src: '/images/hero_bg_1776425430100.png', caption: 'October 2025', label: 'Forever Begins', location: 'Tuscany, Italy', story: 'An engagement celebration with our closest friends and family. The countdown to forever officially began.' },
+  { src: '/images/hero_bg_1776425430100.avif', caption: 'October 2025', label: 'Forever Begins', location: 'Tuscany, Italy', story: 'An engagement celebration with our closest friends and family. The countdown to forever officially began.' },
 ];
 
 const initialRotations = [0, 2, -2.5, 3, -2, 1.5];
@@ -171,8 +171,9 @@ const LoveStorySection = () => {
   const titleY = useTransform(scrollYProgress, [0, 0.15], [0, -50]);
 
   return (
-    <section ref={containerRef} className="relative w-full h-[300vh] bg-[#F4F1EA]">
-      <div className="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center">
+    <section ref={containerRef} className="relative w-full h-[300vh]" style={{ backgroundImage: 'url(/images/our_story_bg.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+      <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(244, 241, 234, 0.75)', zIndex: 0 }} />
+      <div className="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center" style={{ zIndex: 1 }}>
         <motion.div
           className="absolute top-20 md:top-24 text-center w-full z-20"
           style={{ opacity: titleOpacity, y: titleY }}

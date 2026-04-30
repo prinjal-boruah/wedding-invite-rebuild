@@ -79,9 +79,9 @@ const WoodenHandleVertical = ({ id = 'default' }: { id?: string }) => (
 
 const SidewaysInvitation = ({ progress }: { progress: MotionValue<number> }) => {
   // Paper region width grows 0 → 732px (matches .paper-inner-h max width).
-  const paperWidth = useTransform(progress, [0, 1], [0, 1200]);
-  const contentOpacity = useTransform(progress, [0.7, 1], [0, 1]);
-  const contentX = useTransform(progress, [0.7, 1], [20, 0]);
+  const paperWidth = useTransform(progress, [0, 1], [60, 800]);
+  const contentOpacity = useTransform(progress, [0.4, 0.75], [0, 1]);
+  const contentX = useTransform(progress, [0.4, 0.75], [20, 0]);
 
   return (
     <div className="scroll-invitation-h">
@@ -161,6 +161,11 @@ const EventsSection = () => {
   // Hold at start & end so the user sees the closed and fully-open states.
   const progress = useTransform(scrollYProgress, [0.15, 0.85], [0, 1]);
 
+  // Flowers slide in from sides as scroll opens
+const flowerLeftX = useTransform(progress, [0, 1], [-300, 0]);
+const flowerRightX = useTransform(progress, [0, 1], [300, 0]);
+const flowerOpacity = useTransform(progress, [0, 0.3], [0, 1]);
+
   return (
     <div className="events-section">
       <section className="events-heading-section">
@@ -181,7 +186,36 @@ const EventsSection = () => {
 
       <div ref={wrapperRef} className="scroll-tracking-wrapper">
         <div className="scroll-sticky-container">
+          {/* Mobile top/bottom flowers */}
+            <motion.img
+              src="/images/floral_top.png"
+              alt=""
+              className="flower-top"
+              style={{ opacity: flowerOpacity }}
+            />
+          {/* LEFT FLOWER */}
+          <motion.img
+            src="/images/floral_left.png"
+            alt=""
+            className="flower-side flower-left"
+            style={{ opacity: flowerOpacity }}
+          />
+
           <SidewaysInvitation progress={progress} />
+
+          {/* RIGHT FLOWER */}
+          <motion.img
+            src="/images/floral_right.png"
+            alt=""
+            className="flower-side flower-right"
+            style={{ opacity: flowerOpacity }}
+          />
+          <motion.img
+            src="/images/floral_bottom.png"
+            alt=""
+            className="flower-bottom"
+            style={{ opacity: flowerOpacity }}
+          />
         </div>
       </div>
     </div>

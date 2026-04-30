@@ -27,7 +27,7 @@ All four sections recreated 1:1, just typed and wired into the Lovable project:
 
 ### 4. Placeholder images (AI-generated, same filenames as your code expects)
 Generated with Nano Banana, written to `public/images/`:
-- `hero_bg_1776425430100.png` — romantic palace/floral hero backdrop
+- `hero_bg_1776425430100.avif` — romantic palace/floral hero backdrop
 - `couple_story_1776425546722.png` — couple meeting moment
 - `beach_1776425463100.png` — Goa beach
 - `palace_1776425445755.png` — Udaipur palace
