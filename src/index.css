@@ -381,7 +381,6 @@ html { scroll-behavior: smooth; }
   .scroll-handle-wrap { height: 540px; }
   .paper-sleeve { height: 440px; }
   .paper-region-h { height: 440px; }
-  .paper-inner-h { width: 852px; }
   .paper-content-h { padding: 32px 76px; }
 }
 
