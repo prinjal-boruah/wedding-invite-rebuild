@@ -179,14 +179,13 @@ html { scroll-behavior: smooth; }
   margin-right: -20px;
 }
 
-/* Inner paper anchored to the right so content stays centered as the
-   region grows from the left handle outward. */
+/* Inner paper sized to match the region so it stays attached to both sleeves. */
 .paper-inner-h {
   position: absolute;
+  left: 0;
   right: 0;
   top: 0;
-  width: 852px;
-  max-width: calc(100vw - 88px - 2rem + 40px);
+  width: 100%;
   height: 100%;
   background:
     radial-gradient(ellipse at center, rgba(255,250,244,0.5) 0%, transparent 65%),
@@ -382,7 +381,6 @@ html { scroll-behavior: smooth; }
   .scroll-handle-wrap { height: 540px; }
   .paper-sleeve { height: 440px; }
   .paper-region-h { height: 440px; }
-  .paper-inner-h { width: 852px; }
   .paper-content-h { padding: 32px 76px; }
 }
 
