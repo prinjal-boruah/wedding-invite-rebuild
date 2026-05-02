@@ -1,5 +1,4 @@
-import HeroSection from '@/components/HeroSection';
-import CountdownSection from '@/components/CountdownSection';
+import HeroCountdownSection from '@/components/HeroCountdownSection';
 import LoveStorySection from '@/components/LoveStorySection';
 import EventsSection from '@/components/EventsSection';
 import RsvpSection from '@/components/RsvpSection';
@@ -8,8 +7,7 @@ const Index = () => {
   return (
     <main>
       <h1 className="sr-only">Aarav & Ananya Wedding Invitation</h1>
-      <HeroSection />
-      <CountdownSection />
+      <HeroCountdownSection />
       <LoveStorySection />
       <EventsSection />
       <RsvpSection />
