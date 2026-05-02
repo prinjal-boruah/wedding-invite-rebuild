@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform, type MotionValue } from 'framer-motion';
 import { Calendar, MapPin, Clock } from 'lucide-react';
 
 type WeddingEvent = {
@@ -159,12 +159,19 @@ const EventsSection = () => {
   });
 
   // Hold at start & end so the user sees the closed and fully-open states.
-  const progress = useTransform(scrollYProgress, [0.15, 0.85], [0, 1]);
+  const rawProgress = useTransform(scrollYProgress, [0.15, 0.85], [0, 1]);
+
+  // ADD THIS — gives the scroll its own "weight"
+  const progress = useSpring(rawProgress, {
+    stiffness: 40,    // lower = heavier/slower
+    damping: 20,      // higher = less bounce
+    restDelta: 0.001,
+  });
 
   // Flowers slide in from sides as scroll opens
-const flowerLeftX = useTransform(progress, [0, 1], [-300, 0]);
-const flowerRightX = useTransform(progress, [0, 1], [300, 0]);
-const flowerOpacity = useTransform(progress, [0, 0.3], [0, 1]);
+  const flowerLeftX = useTransform(progress, [0, 1], [-300, 0]);
+  const flowerRightX = useTransform(progress, [0, 1], [300, 0]);
+  const flowerOpacity = useTransform(progress, [0, 0.3], [0, 1]);
 
   return (
     <div className="events-section">
