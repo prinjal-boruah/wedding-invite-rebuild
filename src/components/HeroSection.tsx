@@ -16,7 +16,6 @@ const HeroSection = () => {
   const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-20%']);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const frameY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
-  const frameScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
 
   return (
     <section ref={ref} className="relative w-full h-screen overflow-hidden flex items-center justify-center">
