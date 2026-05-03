@@ -48,8 +48,12 @@ const HeroSection = () => {
         aria-hidden="true"
         width={1024}
         height={1024}
-        className="absolute top-0 right-0 w-[280px] md:w-[380px] lg:w-[440px] h-auto pointer-events-none opacity-80 select-none scale-x-[-1]"
-        style={{ y: frameY }}
+        className="absolute top-0 right-0 w-[280px] md:w-[380px] lg:w-[440px] h-auto pointer-events-none opacity-80 select-none"
+        style={{ 
+          y: frameY, 
+          scaleX: -1, 
+          scaleY: 1 
+        }}
       />
 
       {/* Content */}
