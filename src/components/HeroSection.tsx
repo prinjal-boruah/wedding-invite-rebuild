@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
-import goldFrame from '@/assets/gold-filigree-frame.png';
+import goldCorner from '@/assets/gold-corner.png';
 
 const HeroSection = () => {
   const ref = useRef<HTMLElement>(null);
@@ -33,15 +33,24 @@ const HeroSection = () => {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/70 pointer-events-none" />
 
-      {/* Desi gold filigree frame overlay (parallax) */}
+      {/* Minimal desi gold filigree corners — top-left & top-right (parallax) */}
       <motion.img
-        src={goldFrame}
+        src={goldCorner}
         alt=""
         aria-hidden="true"
         width={1024}
         height={1024}
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none mix-blend-screen opacity-90"
-        style={{ y: frameY, scale: frameScale }}
+        className="absolute top-0 left-0 w-[280px] md:w-[380px] lg:w-[440px] h-auto pointer-events-none opacity-80 select-none"
+        style={{ y: frameY }}
+      />
+      <motion.img
+        src={goldCorner}
+        alt=""
+        aria-hidden="true"
+        width={1024}
+        height={1024}
+        className="absolute top-0 right-0 w-[280px] md:w-[380px] lg:w-[440px] h-auto pointer-events-none opacity-80 select-none scale-x-[-1]"
+        style={{ y: frameY }}
       />
 
       {/* Content */}
