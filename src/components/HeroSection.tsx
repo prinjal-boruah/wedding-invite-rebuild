@@ -1,14 +1,29 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
+import goldFrame from '@/assets/gold-filigree-frame.png';
 
 const HeroSection = () => {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+
+  // Parallax: bg moves slower, content drifts up, overlays move at varying speeds
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.1, 1.25]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-20%']);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const frameY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
+  const frameScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+
   return (
-    <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
+    <section ref={ref} className="relative w-full h-screen overflow-hidden flex items-center justify-center">
+      {/* Parallax background */}
       <motion.div
-        className="absolute inset-0 w-full h-full"
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 10, ease: 'easeOut' }}
+        className="absolute inset-0 w-full h-[120%] -top-[10%]"
+        style={{ y: bgY, scale: bgScale }}
       >
         <div
           className="w-full h-full bg-cover bg-center bg-no-repeat"
@@ -16,9 +31,24 @@ const HeroSection = () => {
         />
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/70 pointer-events-none" />
 
-      <div className="relative z-10 text-center text-cream flex flex-col items-center px-4 w-full max-w-4xl">
+      {/* Desi gold filigree frame overlay (parallax) */}
+      <motion.img
+        src={goldFrame}
+        alt=""
+        aria-hidden="true"
+        width={1024}
+        height={1024}
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none mix-blend-screen opacity-90"
+        style={{ y: frameY, scale: frameScale }}
+      />
+
+      {/* Content */}
+      <motion.div
+        className="relative z-10 text-center text-cream flex flex-col items-center px-4 w-full max-w-4xl"
+        style={{ y: contentY, opacity: contentOpacity }}
+      >
         <motion.p
           className="text-sm md:text-base uppercase tracking-[0.4em] mb-6 font-sans font-medium text-gold"
           initial={{ opacity: 0, y: 30 }}
@@ -45,10 +75,10 @@ const HeroSection = () => {
         >
           Join us to celebrate our new beginning
         </motion.p>
-      </div>
+      </motion.div>
 
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-cream"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-cream z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ duration: 2, delay: 2, repeat: Infinity, ease: 'easeInOut' }}
